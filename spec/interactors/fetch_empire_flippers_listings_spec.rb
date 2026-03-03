@@ -30,7 +30,7 @@ RSpec.describe FetchEmpireFlippersListings do
 
   describe "#call" do
     context "when the API returns a single page" do
-      before { stub_page(1, listings: [listing_data, listing_data], total_pages: 1) }
+      before { stub_page(1, listings: [ listing_data, listing_data ], total_pages: 1) }
 
       it "returns context success" do
         result = described_class.call
@@ -52,7 +52,7 @@ RSpec.describe FetchEmpireFlippersListings do
     context "when the API returns multiple pages" do
       before do
         stub_page(1, listings: Array.new(3) { listing_data }, total_pages: 2)
-        stub_page(2, listings: [listing_data], total_pages: 2)
+        stub_page(2, listings: [ listing_data ], total_pages: 2)
         allow(interactor).to receive(:sleep)
       end
 
