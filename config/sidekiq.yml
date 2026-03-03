@@ -1,0 +1,11 @@
+:concurrency: 5
+:queues:
+  - default
+
+:scheduler:
+  :schedule:
+    sync_listings:
+      :cron: "0 6 * * *"
+      :class: SyncListingsJob
+      :queue: default
+      :description: "Fetch Empire Flippers listings and sync to HubSpot"
